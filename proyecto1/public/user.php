@@ -1,54 +1,129 @@
 <?php
+
+/**
+ * Form elements definition
+ * 
+ * @example 
+ * 'element-n' => array(
+ *      'type'=>(hidden|text|pasword|radio|checkbox|select|selectmultiple|textarea),
+ *      'label'=>[string],
+ *      'name'=>(string),
+ *      'options'=>array('key'=>'value',..),
+ *      'defaults'=>array('key',..),
+ *      'value'=>array('key,..'),
+ *      'decorator'=>array('key'=>'value',..),
+ *      'hint'=>[string],
+ *      'id'=>[string],
+ *      'filters'=>array('filter',..),
+ *      'validation'=>array(array('type'=>(string),'error'=>(string), options=>[array('key'=>'value',..)]),array(),..),           
+ *  ),
+ */
+
+
 $register = array(
     'id' => array(
         'type'=>'hidden',
-        'label'=>'',
-        'name'=>'',
+        'label'=>'Id:',
+        'name'=>'id',
+        'options'=>array(),
+        'defaults'=>array('1'),
         'value'=>array(),
-        'decorator'=>'',
+        'decorator'=>array(),
         'hint'=>'',
-        'id'=>'',
-        'errors'=>array(),    
+        'id'=>'id',
+        'filters'=>array('spaces', 'tags'),
+        'validation'=>array(
+                        array(
+                            'type'=>'notnull',
+                            'error'=>'El valor no puede estar vacio',
+                            'options'=>array()
+                        )
+                    ),
     ),
     'name' => array(
         'type'=>'text',
-        'label'=>'',
-        'name'=>'',
+        'label'=>'Nombre:',
+        'name'=>'name',
+        'options'=>array(),
+        'defaults'=>array(),
         'value'=>array(),
-        'decorator'=>'',
+        'decorator'=>array(),
         'hint'=>'',
-        'id'=>'',
-        'errors'=>array(),
+        'id'=>'name',
+        'filters'=>array('spaces','tags'),
+        'validation'=>array(
+                        array(
+                            'type'=>'notnull',
+                            'error'=>'El valor no puede estar vacio',
+                            'options'=>array()
+                        ),
+                        array(
+                            'type'=>'valmax',
+                            'error'=>'El valor no puede exeder %s caracteres',
+                            'options'=>array('max'=>10)
+                        )
+                    ),
     ),
     'password' => array(
         'type'=>'password',
-        'label'=>'',
-        'name'=>'',
+        'label'=>'Contraseña:',
+        'name'=>'password',
+        'options'=>array(),
+        'defaults'=>array(),
         'value'=>array(),
-        'decorator'=>'',
+        'decorator'=>array(),
         'hint'=>'',
-        'id'=>'',
-        'errors'=>array(),
+        'id'=>'password',
+        'filters'=>array('spaces','tags'),
+        'validation'=>array(
+                        array(
+                            'type'=>'notnull',
+                            'error'=>'El valor no puede estar vacio',
+                            'options'=>array()
+                        ),
+                        array(
+                            'type'=>'valmin',
+                            'error'=>'El valor no puede tener menos de %s caracteres',
+                            'options'=>array('max'=>10)
+                        )
+                    ),
     ),
     'email' => array(
-        'type'=>'text',
-        'label'=>'',
-        'name'=>'',
+        'type'=>'email',
+        'label'=>'Email:',
+        'name'=>'email',
+        'options'=>array(),
+        'defaults'=>array(),
         'value'=>array(),
-        'decorator'=>'',
+        'decorator'=>array(),
         'hint'=>'',
-        'id'=>'',
-        'errors'=>array(),
+        'id'=>'email',
+        'filters'=>array('spaces','tags'),
+        'validation'=>array(
+                        array(
+                            'type'=>'notnull',
+                            'error'=>'El valor no puede estar vacio',
+                            'options'=>array()
+                        ),
+                        array(
+                            'type'=>'email',
+                            'error'=>'El valor no es un email valido',
+                            'options'=>array()
+                        )
+                    ),
     ),
     'description' => array(
         'type'=>'textarea',
-        'label'=>'',
-        'name'=>'',
+        'label'=>'Descripcion:',
+        'name'=>'description',
+        'options'=>array(),
+        'defaults'=>array(),
         'value'=>array(),
-        'decorator'=>'',
+        'decorator'=>array(),
         'hint'=>'',
-        'id'=>'',
-        'errors'=>array(),
+        'id'=>'description',
+        'filters'=>array('spaces','tags'),
+        'validation'=>array(),
     ),
     'city' => array(
         'type'=>'select',
@@ -56,53 +131,74 @@ $register = array(
         'name'=>'city',
         'options'=>array('bcn'=>'Barcelona', 'grn'=>'Girona', 'lld'=>'Lleida'),
         'defaults'=>array('bcn', 'grn'),
+        'value'=>array(),
         'decorator'=>array('class'=>'class1 class2'),
         'hint'=>'',
-        'id'=>'',
-        'filters'=>array('space','tags'),
+        'id'=>'city',
+        'filters'=>array(),
         'validation'=>array(            
                     array(
                             'type'=>'inarray',
-                            'error'=>'No esta en la lista de ciudades',
+                            'error'=>'No esta en la lista de opciones',
                             'options'=>array()
-                        ),
-                    array(
-                        'type'=>'strlen',
-                        'error'=>'Maximo numero de caracteres (n) superado',
-                        'options'=>array('size'=>10)
-                    ),
+                        ),                  
         ),
-        'errors'=>array('inarray','strlen'),
-        
     ),
     'languages' => array(
         'type'=>'selectmultiple',
-        'label'=>'',
-        'name'=>'',
+        'label'=>'Idiomas:',
+        'name'=>'languages',
+        'options'=>array('eng'=>'Ingles', 'esp'=>'Castellano', 'cat'=>'Català'),
+        'defaults'=>array('eng','cat'),
         'value'=>array(),
-        'decorator'=>'',
+        'decorator'=>array('class'=>'class1 class2'),
         'hint'=>'',
-        'id'=>'',
-        'errors'=>array(),
+        'id'=>'languages',
+        'filters'=>array(),
+        'validation'=>array(            
+                    array(
+                            'type'=>'inarray',
+                            'error'=>'No esta en la lista de opciones',
+                            'options'=>array()
+                        ),                  
+        ),
     ),
     'gender' => array(
         'type'=>'radio',
-        'label'=>'',
-        'name'=>'',
+        'label'=>'Sexo:',
+        'name'=>'gender',
+        'options'=>array('m'=>'Mujer', 'h'=>'Hombre', 'o'=>'Otros'),
+        'defaults'=>array('o'),
         'value'=>array(),
-        'decorator'=>'',
+        'decorator'=>array(),
         'hint'=>'',
-        'id'=>'',
-        'errors'=>array(),
+        'id'=>'gender',
+        'filters'=>array(),
+        'validation'=>array(            
+                    array(
+                            'type'=>'inarray',
+                            'error'=>'No esta en la lista de opciones',
+                            'options'=>array()
+                        ),                  
+        ),
     ),
     'transports' => array(
         'type'=>'checkbox',
-        'label'=>'',
-        'name'=>'',
+        'label'=>'Transportes:',
+        'name'=>'transports',
+        'options'=>array('car'=>'Coche', 'bike'=>'Bici', 'motor'=>'Moto'),
+        'defaults'=>array(),
         'value'=>array(),
-        'decorator'=>'',
+        'decorator'=>array(),
         'hint'=>'',
-        'id'=>'',
-        'errors'=>array(),
+        'id'=>'transports',
+        'filters'=>array(),
+        'validation'=>array(            
+                    array(
+                            'type'=>'inarray',
+                            'error'=>'No esta en la lista de opciones',
+                            'options'=>array()
+                        ),                  
+        ),
     ),
 );
