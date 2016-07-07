@@ -21,18 +21,21 @@
      {
          // Tomar form[key][filter]
          //  Para cada filter 
-        foreach($form[$key]['filters'] as $filter)
+        if(array_key_exists($key, $form))
         {
-            // aplicarlo incrementalmente sobre value
-            switch ($filter) 
+            foreach($form[$key]['filters'] as $filter)
             {
-                case 'space':
-                    $value = trim($value);                    
-                break;
-                case 'tags':
-                    $value = strip_tags($value);
-                break;                
-            }            
+                // aplicarlo incrementalmente sobre value
+                switch ($filter) 
+                {
+                    case 'spaces':
+                        $value = trim($value);                    
+                    break;
+                    case 'tags':
+                        $value = strip_tags($value);
+                    break;                
+                }            
+            }
         }
         // Guardar el value filtrado en el array data
         $data[$key] = $value;

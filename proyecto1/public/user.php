@@ -182,16 +182,16 @@ $register = array(
                         ),                  
         ),
     ),
-    'transports' => array(
+    'transport' => array(
         'type'=>'checkbox',
         'label'=>'Transportes:',
-        'name'=>'transports',
+        'name'=>'transport',
         'options'=>array('car'=>'Coche', 'bike'=>'Bici', 'motor'=>'Moto'),
         'defaults'=>array(),
         'value'=>array(),
         'decorator'=>array(),
         'hint'=>'',
-        'id'=>'transports',
+        'id'=>'transport',
         'filters'=>array(),
         'validation'=>array(            
                     array(

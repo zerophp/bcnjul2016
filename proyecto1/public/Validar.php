@@ -16,6 +16,10 @@ function Validar($data, $form)
     foreach($data as $key => $value)
     {
         // Buscar en form por key la validacion
+        if(array_key_exists($key, $form))
+        {
+            
+        
         $validations = $form[$key]['validation'];
         
         
@@ -44,7 +48,7 @@ function Validar($data, $form)
                 case 'email':
                     // Validar que es un email
                     //$val = checkEmail();
-                    $val = false;
+                    $val = true;
                 break;                
                 case 'inarray':
                     // Validar que esta en el array
@@ -62,7 +66,7 @@ function Validar($data, $form)
             }
             
         }
-        
+        }
         
     }
         

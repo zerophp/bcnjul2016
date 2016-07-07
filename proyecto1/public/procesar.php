@@ -4,7 +4,7 @@
 // print_r($_GET);
 // echo "</pre>";
 
-echo "<pre>";
+echo "<pre>Post: ";
 print_r($_POST);
 echo "</pre>";
 
@@ -14,29 +14,21 @@ echo "</pre>";
 
 
 require_once "Filtrar.php";
+require_once "user.php";
+require_once "Validar.php";
 
-$form = array(
-    'id' => array(
-        'type'=>'hidden',
-        'label'=>'',
-        'name'=>'',
-        'value'=>array(),
-        'decorator'=>'',
-        'hint'=>'',
-        'filters'=>array(),
-        'id'=>'',
-        'errors'=>array(),
-    ),
-);
+$datos = Filtrar($_POST, $register);
+$val = Validar($datos, $register);
 
-$dato=array('id'=>2);
-
-$datos = Filtrar($dato, $form);
+echo "<pre>Post filter: ";
+print_r($datos);
+echo "</pre>";
 
 
-// echo "<pre>";
-// print_r($datos);
-// echo "</pre>";
+echo "<pre>Validatio: ";
+print_r($val);
+echo "</pre>";
+
 
 
 // die;
