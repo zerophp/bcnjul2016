@@ -45,7 +45,7 @@ file_put_contents('users.txt', $datos."\n", FILE_APPEND);
 // fwrite($handle, $string)
 // fclose($handle);
 
-
+header('Location: users.php');
 
 
     
