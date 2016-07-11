@@ -8,44 +8,26 @@ echo "<pre>Post: ";
 print_r($_POST);
 echo "</pre>";
 
-// echo "<pre>";
-// print_r($_FILES);
-// echo "</pre>";
-
-
 require_once "Filtrar.php";
 require_once "user.php";
-require_once "Validar.php";
+// require_once "Validar.php";
 
 $datos = Filtrar($_POST, $register);
-$val = Validar($datos, $register);
+// $val = Validar($datos, $register);
 
-echo "<pre>Post filter: ";
+echo "<pre>Datos: ";
 print_r($datos);
 echo "</pre>";
 
 
-echo "<pre>Validatio: ";
-print_r($val);
-echo "</pre>";
+// Para cada elemento del array DATOS  
+//     Si es multiple 
+//         Concatenar por comas
+        
+//     Concatenar los elementos por pipe
+    
+// Agregar la linea al final de el archivo
+    
 
-
-
-// die;
-
-
-// if(Validar($datos) == OK)
-// {
-//     Procesar($datos)
-// }
-// else 
-// {
-//     Error($datos);    
-// }
-
-
-
-
-// Tokenizar
-
-// Procesar
+    
+    
