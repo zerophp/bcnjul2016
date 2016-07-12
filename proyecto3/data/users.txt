@@ -1,11 +1,6 @@
-|Agustin||agustincl@gmail.com|desc|bcn|esp,cat|h|car,bike,motor|Enviar
-|Sebastian|123123qa|sebas@gmail.com|adkhasd|grn|eng,cat|o|car|Enviar
+|Sebastiancccc|123123qa|sebas@gmail.com|adkhasd|grn|eng,cat|o|car|Enviar
 |c|c|c@asd.com|adkhasdc|grn|esp|o|car|Enviar
-|d||c@asd.com|adkhasdc|grn|esp|o|car|Enviar
 |e||c@asd.com|adkhasdc|grn|esp|o|car|Enviar
 |e||c@asd.com|adkhasdc|grn|esp|o|car|Enviar
 |h|h|h@as.com|h|grn|eng,cat|o|bike|Enviar
-|uu|u|u@asd.com|u|grn|eng,cat|o|bike|Enviar
-|k|k|k@asd.com|k|grn|eng,cat|o|Enviar
-|t|t|t@t.com|t|grn|eng,cat|o|car|Enviar
-|sadfasdasd|asdas|dasdasd@aSDASD.COM|ASDASDASD|grn|eng,cat|o|car|Enviar
+|kaka|k|k@asd.com|k|bcn|eng,cat|o|Enviar
