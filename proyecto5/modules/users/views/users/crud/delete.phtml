@@ -1,0 +1,7 @@
+Seguro que deseas borrar a <?=$user['name'];?>
+<form method="POST" action="?controller=crud&action=delete">
+	<input type="hidden" name="iduser" value="<?=$_GET['iduser'];?>"/>
+	Si <input type="radio" name="delete"  id="si" value = "si"/>
+    No <input type="radio" name="delete"  id="no" value = "no"/>
+    <input type="submit" name="enviar"/>
+</form>

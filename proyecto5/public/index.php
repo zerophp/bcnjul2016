@@ -1,7 +1,5 @@
 <?php
 
-echo "Soy index.php";
-
 if(isset($_GET['controller']))
     $controller = $_GET['controller'];
     else

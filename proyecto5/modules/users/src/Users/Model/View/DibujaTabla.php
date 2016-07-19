@@ -8,7 +8,8 @@
  */
 function DibujaTabla($array)
 {
-    $html = '<table border=1>';  
+    $html = "<a href=\"?controller=crud&action=insert\">Insert</a>";
+    $html.= '<table border=1>';  
     for($i=0; $i<sizeof($array)-1;$i++)
     {
         $html .= "<tr>";
@@ -19,8 +20,8 @@ function DibujaTabla($array)
             else
                 $html .= "<td></td>";
         }
-        $html .= "<td><a href=\"?action=Update&id=".$i."\">Update</a>
-                      <a href=\"?action=Delete&id=".$i."\">Delete</a>
+        $html .= "<td><a href=\"?controller=crud&action=update&iduser=".$array[$i]['iduser']."\">Update</a>
+                      <a href=\"?controller=crud&action=delete&iduser=".$array[$i]['iduser']."\">Delete</a>
                     </td>";
         $html .= "</tr>";
     }
