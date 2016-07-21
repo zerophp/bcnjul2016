@@ -32,8 +32,11 @@ function router($url = "/", $base=array())
 	$url = explode("/", $url);
 	
 	$default = $base['default'];
-	if(isset($url[1]) && strlen($url[1])>0){		
-    	$default = isset($base['routes']['/'.$url[1]]) ? $base['routes']['/'.$url[1]] : $default;
+    	$def = false;
+	if(isset($url[1]) && strlen($url[1])>0 && isset($base['routes']['/'.$url[1]]))
+	{		
+	    	$default = $base['routes']['/'.$url[1]];
+	        $def = true;
 	}    
 
 	$router = array('module'=>'','controller'=>'','action'=>'','params'=>array());
