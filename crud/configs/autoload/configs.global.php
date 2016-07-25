@@ -1,0 +1,22 @@
+<?php 
+$configs = array(
+    'router'=>array(
+        'default'=>array(
+            'module'=>'application',
+            'controller'=>'index',
+            'action'=>'index'
+        ),
+        'routes'=>array(
+            '/home'=>array(
+                'module'=>'users',
+                'controller'=>'crud',
+                'action'=>'select'
+            ),
+            '/cosa-muy-rara'=>array(
+                'module'=>'users',
+                'controller'=>'crud',
+                'action'=>'kaka'
+            ),
+        ),
+    )    
+);
