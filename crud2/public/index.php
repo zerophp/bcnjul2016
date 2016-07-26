@@ -1,21 +1,40 @@
 <?php
 
-
 require_once "../autoload.php";
-require_once "../configs/autoload/configs.global.php";
 
+if(isset($_SERVER['application_env'] )&&
+    $_SERVER['application_env']=='production')    
+    $config = 'production.config.php';
+else
+    $config = 'development.config.php';
+
+//     echo getcwd();
+    
+chdir("..");
+$APPLICATION_PATH = getcwd();
+
+
+define("APPLICATION_PATH",$APPLICATION_PATH);
+    
 // use Mandela\Model;
 
-$router = Mandela\Model\FrontController::Router($_SERVER['REQUEST_URI'], $configs['router']);
+$config = Mandela\FrontController\FrontController::Config($config);
 
-echo "<pre>router";
+echo "<pre>configs: ";
+print_r($config);
+echo "</pre>";
+
+$router = Mandela\FrontController\FrontController::Router($_SERVER['REQUEST_URI'], 
+                                                          $config['router']);
+
+echo "<pre>router: ";
 print_r($router);
 echo "</pre>";
 
-$render = Mandela\Model\FrontController::Dispatch($router);
+$render = Mandela\FrontController\FrontController::Dispatch($router);
 
-echo "<pre>render";
+echo "<pre>render: ";
 print_r($render);
 echo "</pre>";
 
-echo Mandela\Model\FrontController::Render($render);
+echo Mandela\FrontController\FrontController::Render($render);
